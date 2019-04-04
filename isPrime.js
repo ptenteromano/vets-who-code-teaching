@@ -3,7 +3,7 @@
 
 // a function to check whether a number is prime or not
 
-let testVal = 2017;
+let testVal = 5090592343030422323;
 
 // First option, pretty intuitive
 function isPrime(k) {
@@ -19,7 +19,7 @@ function isPrime(k) {
 }
 
 let str = isPrime(testVal);
-// console.log(str);
+console.log(str);
 
 // Optimized slightly!
 // Note: There are many different primality tests, see bottom link on README
@@ -40,7 +40,7 @@ function isPrimeSqrt(k) {
 }
 
 let str2 = isPrimeSqrt(testVal);
-// console.log(str2);
+console.log(str2);
 
 // First 'n' primes:
 // A simple loop using our optimized version!
@@ -65,7 +65,7 @@ function first_N_Primes(n, opt) {
   }
 }
 
-let n = 30000;
+let n = 10;
 
 // test speeds!!
 console.log(`Testing with first ${n} primes\n`);
