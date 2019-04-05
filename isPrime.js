@@ -3,7 +3,7 @@
 
 // a function to check whether a number is prime or not
 
-let testVal = 5090592343030422323;
+let testVal = 2017;
 
 // First option, pretty intuitive
 function isPrime(k) {
