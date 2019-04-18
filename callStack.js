@@ -5,7 +5,7 @@
 // Implement nested functions to test js call stack
 
 function Outer() {
-  Inner(10);
+  Inner(50);
   console.log("Calling Outer!");
 }
 
