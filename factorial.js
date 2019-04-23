@@ -31,9 +31,17 @@ console.log(factorial(test_eight));
 //
 //    |   1    | comes off the stack
 //    |    2 * 1  | = 2, comes off the stack
-//    |    3 * 2    | = 6, 
+//    |    3 * 2    | = 6,
 //    |    factorial(4)    | 24
-//    |    factorial(5)    | 120 
+//    |    factorial(5)    | 120
 //    |    factorial(6)    |
 //    |    factorial(7)    |
 //    |____factorial(8)____| first function call
+
+// sequence
+// 20*19*18 * ... * 1
+
+// fibonacci(20)
+
+// 19th and 18th positions are, and add them
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ..... ,(20th position)

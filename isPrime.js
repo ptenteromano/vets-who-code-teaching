@@ -68,7 +68,45 @@ function first_N_Primes(n, opt) {
 let n = 10;
 
 // test speeds!!
-console.log(`Testing with first ${n} primes\n`);
+console.log(`\nTesting with first ${n} primes\n`);
+console.time("N primes - original");
+first_N_Primes(n);
+console.timeEnd("N primes - original");
+
+console.time("N primes - OPTIMIZED!!");
+first_N_Primes(n, true);
+console.timeEnd("N primes - OPTIMIZED!!", n);
+
+n = 1000;
+
+// test speeds!!
+console.log(`\nTesting with first ${n} primes\n`);
+console.time("N primes - original");
+
+first_N_Primes(n);
+
+console.timeEnd("N primes - original");
+
+console.time("N primes - OPTIMIZED!!");
+first_N_Primes(n, true);
+console.timeEnd("N primes - OPTIMIZED!!", n);
+
+n = 10000;
+
+// test speeds!!
+console.log(`\nTesting with first ${n} primes\n`);
+console.time("N primes - original");
+first_N_Primes(n);
+console.timeEnd("N primes - original");
+
+console.time("N primes - OPTIMIZED!!");
+first_N_Primes(n, true);
+console.timeEnd("N primes - OPTIMIZED!!", n);
+
+n = 30000;
+
+// test speeds!!
+console.log(`\nTesting with first ${n} primes\n`);
 console.time("N primes - original");
 first_N_Primes(n);
 console.timeEnd("N primes - original");
