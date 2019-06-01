@@ -58,7 +58,7 @@ function first_N_Primes(n, opt) {
     }
 
     if (str == "Prime!") {
-      // console.log(num);
+      console.log(num);
       i++;
     }
     num++;
