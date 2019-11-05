@@ -11,20 +11,35 @@ Let's get started:
 2. Create a new README file
 
 3. Write down 3 goals you want to take away from CS.
-4. Write a brief background of your math & tech experience.
+4. Write a brief background of your math & technical experience.
 5. Finally, write your definition of CS in your own words.<br>
 <small>Format and style it - practice your markdown skills!</small>
+
 <hr>
 
-## Day One
-### Refresher and Big O notation
+<bold>How days flow:</bold><br>
+Review &rarr; Introduce Topic &rarr; Learning Resources &rarr; Assignment
+<small> Q & A is always on. Just let me know you have a question via voice or chat</small>
 
-<bold>Flow for the day:</bold><br>
-Introductions &rarr; Lecture &rarr; Learning Resources &rarr; Assignment
+## Week 8 Topics:
+1. Big O
+2. Call Stack
+3. Recursion
 
-# What is Big O?
+## Week 9 Topics:
+1. Object Oriented Programming
+2. Data Structures
+3. Intro to Algorithms
 
+## Week 10 Topics
+1. Sorting
+2. Primality and Practical Algorithms
+3. Review
 
+Close
 
+## Slide Show:
 
-
+Naive / Brute force
+Optimization
+Problem solving
