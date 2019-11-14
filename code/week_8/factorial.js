@@ -10,7 +10,6 @@
 // k! = k * k - 1 * k - 2 * k - 3 * ... * 1
 
 // Grows very fast: (think of just 8!)
-
 function factorial(k) {
   // base case
   if (k <= 1) {

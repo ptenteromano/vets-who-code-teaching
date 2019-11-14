@@ -13,7 +13,6 @@ function isPrime(k) {
 
   // why start at 2?
 
-  // n ^ (1/2)
   for (let i = 2; i < k; i++) {
     if (k % i == 0) return "Not Prime";
   }
@@ -24,39 +23,57 @@ function isPrime(k) {
 // 36 - [2 * 18], [6 * 6], [18 * 2]
 
 let str = isPrime(testVal);
-console.log(str);
+console.log(`Testing ${testVal}... ${str}\n`);
 
 // First 'n' primes:
 // A simple loop using our optimized version!
 function first_N_Primes(n, opt) {
   let num = 2;
-  let i = 0;
-  let str = "";
+  let countPrimes = 0;
+  let str;
+  let func;
 
-  while (i < n) {
-    // optimization or not
-    if (opt) {
-      str = "optimizedAlgorithm()!";
-    } else {
-      str = isPrime(num);
-    }
+  // optimization or not
+  if (opt) func = isPrimeOptimize;
+  else func = isPrime;
+
+  while (countPrimes < n) {
+    str = func(num);
 
     if (str == "Prime!") {
       // console.log(num);
-      i++;
+      countPrimes++;
     }
+    // Check next number
     num++;
   }
 }
 
-let n = 10;
+let n = 20000;
 
-// test speeds!!
+// Test speeds
+// Original
 console.log(`Testing with first ${n} primes\n`);
+
 console.time("N primes - original");
 first_N_Primes(n);
 console.timeEnd("N primes - original");
 
+// Optimized
 console.time("N primes - OPTIMIZED!!");
 first_N_Primes(n, true);
-console.timeEnd("N primes - OPTIMIZED!!", n);
+console.timeEnd("N primes - OPTIMIZED!!");
+
+function isPrimeOptimize(k) {
+  if (k < 2) {
+    return "Not Prime";
+  }
+  const sqrt = Math.floor(Math.sqrt(k));
+
+  // n ^ (1/2)
+  for (let i = 2; i < sqrt; i++) {
+    if (k % i == 0) return "Not Prime";
+  }
+
+  return "Prime!";
+}

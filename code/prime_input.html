@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div
+      style="display:flex; justify-content: space-evenly; margin-top: 250px;"
+    >
+      <div>
+        Is your number prime?<br /><input
+          type="text"
+          name="number"
+          id="prime_1"
+          oninput="takeInput(event)"
+        /><br />
+      </div>
+      <div style="width: 200px;">
+        <p id="msg">
+          message
+        </p>
+      </div>
+    </div>
+
+    <div id="output" style="width: 100px; margin: auto; margin-top: 50px;">
+      No input yet
+    </div>
+
+    <hr />
+    <div
+      style="display:flex; justify-content: space-evenly; margin-top: 250px;"
+    >
+      <div>
+        Starting Range
+        <br /><input
+          type="text"
+          name="number"
+          id="lower"
+          oninput="rangeInput(event)"
+        /><br />
+        Ending Range
+        <br /><input
+          type="text"
+          name="number"
+          id="upper"
+          oninput="rangeInput(event)"
+        /><br />
+      </div>
+      <div style="width: 200px;">
+          <p id="msg_range">
+            message
+          </p>
+        </div>
+      </div>
+
+      <div id="output_range" style="width: 100px; margin: auto; margin-top: 50px;">
+        No input yet
+      </div>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+    function takeInput(e) {
+      e.preventDefault();
+      const input = document.getElementById("prime_1");
+      const msg = document.getElementById("msg");
+      const output = document.getElementById("output");
+
+      const num = parseInt(input.value);
+      const MAX = Number.MAX_SAFE_INTEGER;
+
+      output.innerText = num;
+
+      if (isNaN(num) || !(num < MAX)) {
+        console.log("Not valid");
+        msg.innerText = "Not valid input";
+
+        return;
+      }
+
+      if (num < 2) {
+        console.log("Not valid");
+        msg.innerText = "Primes are only positive and larger than 1!";
+
+        return;
+      }
+
+      // Do prime test
+      const primality = isPrime(num);
+      msg.innerText = primality ? "PRIME!" : "Not a prime";
+    }
+
+    function isPrime(num) {
+      const sqrt = Math.floor(Math.sqrt(num));
+
+      for (let i = 2; i <= sqrt; i++) {
+        if (num % i === 0) return false;
+      }
+      return true;
+    }
+
+    // ranges
+    function rangeInput(e) {
+      const lower = document.getElementById("lower");
+      const upper = document.getElementById("upper");
+      const msg = document.getElementById("msg_range");
+      const output = document.getElementById("output_range");
+
+      const num_lower = parseInt(lower.value)
+      const num_upper = parseInt(upper.value)
+
+      if (isNaN(num_lower) || isNaN(num_upper)) {
+        msg.innerText = "Need integers for both ranges"
+
+        return;
+      }
+
+      if (num_upper < num_lower) {
+        msg.innerText = "Lower bound has to be lower than upper bound"
+        console.log(num_lower, num_upper)
+        return;
+      }
+
+      if (num_lower < 2) {
+        lower.value = 2;
+        num_lower = 2
+
+        msg.innerText = "Lower bound has been set to 2"
+      }
+
+      ul = document.createElement('ul');
+
+      msg.appendChild(ul)
+
+      output.innerText = "Finding primes"
+      primes = primesInRange(num_lower, num_upper);
+
+      primes.forEach(function (prime) {
+        let li = document.createElement('li');
+
+        ul.appendChild(li);
+
+        li.innerText = prime;
+      })
+
+    }
+
+    function primesInRange(lower, upper) {
+      const primeList = []
+      let start;
+
+      if (lower == 2) {
+        primeList.push(lower)
+        start = lower + 1;
+      }
+      else if (lower % 2 == 0) {
+        start = lower + 1;
+      }
+      else start = lower;
+
+      for (let i = start; i <= upper; i += 2) {
+        if (isPrime(i)) primeList.push(i);
+      }
+
+      return primeList;
+    }
+
+  </script>
+</html>
