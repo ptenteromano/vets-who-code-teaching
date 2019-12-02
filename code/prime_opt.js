@@ -34,11 +34,11 @@ function first_N_Primes(n, opt) {
   let func;
 
   // optimization or not
-  if (opt) func = isPrimeOptimize;
-  else func = isPrime;
+  if (opt) primeFunc = isPrimeOptimize;
+  else primeFunc = isPrime;
 
   while (countPrimes < n) {
-    str = func(num);
+    str = primeFunc(num);
 
     if (str == "Prime!") {
       // console.log(num);
