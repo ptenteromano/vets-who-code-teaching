@@ -4,6 +4,7 @@
 // Circular array
 // Using one loop, print contents of an array four times
 
+// This array can be anything you want
 greets = ["hi", "hello", "hey"];
 
 function circularArray(arr, numLoops) {
