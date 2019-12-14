@@ -6,15 +6,17 @@ class Queue {
     this.obj = obj;
     this.arr = [];
   }
-  /* Shift removes the first object  */
-  shiftObj(obj) {
+  /* Shift removes the first object at bottom of stack. 
+  "First In, First Out"  */
+  firstOut(obj) {
     this.arr.shift(obj);
     console.log(this.arr);
   }
-  /* Puts the first object in line */
-  unshiftObj(obj) {
+  /* Puts obj object at end of line 
+  "Last In, Last Out" */
+  lastIn(obj) {
     this.isEmpty(obj)
-    this.arr.unshift(obj);
+    this.arr.push(obj);
     console.log(this.arr);
   }
   //Did someone put nothing in there? This will check and return an empty array []
@@ -27,19 +29,19 @@ Last In First Out
 -----------------`);
 
 let queue = new Queue();
-queue.unshiftObj(15);
-queue.unshiftObj(16);
-queue.unshiftObj(17);
-queue.unshiftObj(18);
-queue.unshiftObj(45);
-queue.unshiftObj(122);
-queue.shiftObj();
-queue.shiftObj();
-queue.shiftObj();
-queue.shiftObj();
-queue.shiftObj();
-queue.shiftObj();
-queue.unshiftObj();
+queue.lastIn(15);
+queue.lastIn(16);
+queue.lastIn(17);
+queue.lastIn(18);
+queue.lastIn(45);
+queue.lastIn(122);
+queue.firstOut();
+queue.firstOut();
+queue.firstOut();
+queue.firstOut();
+queue.firstOut();
+queue.firstOut();
+queue.lastIn();
 /* 
 Demonstration of a Stack. LIFO or 
 Last In First Out

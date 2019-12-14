@@ -1,6 +1,7 @@
 /* 
 ## Stack
-We went over stack already LIFO - Last in, first out! What does a Stack class do? We can add to the stack We can remove from the stack We can check if the stack is empty or not We can initialize it in multiple ways.
+We went over stack already LIFO - 
+Last in, first out! What does a Stack class do? We can add to the stack We can remove from the stack We can check if the stack is empty or not We can initialize it in multiple ways.
 */
 
 class Stack {
@@ -10,15 +11,15 @@ class Stack {
     this.arr = []
   }
 
-  /* Push pushes item to the top of the stack */
-  pushObj(obj) {
-    this.arr.push(obj);
+  /* Push pushes item to the top of the stack "Last In"*/
+  lastIn(obj) {
+    this.arr.unshift(obj);
     return this.arr;
   }
-  /* Removes item from top of the stack */
-  popObj(obj) {
+  /* Removes item from top of the stack "First Out"*/
+  firstOut(obj) {
     if (this.arr === null) return this.isEmpty();
-    this.arr.pop(obj);
+    this.arr.shift(obj);
     return this.arr;
   }
     //Did someone put nothing in there? This will check and return an empty array []
@@ -30,19 +31,19 @@ console.log(`Demonstration of a Stack. LIFO or
 Last In First Out
 -----------------`);
 let stack = new Stack(15);
-console.log(stack.pushObj(15));
-console.log(stack.pushObj(16));
-console.log(stack.pushObj(17));
-console.log(stack.pushObj(18));
-console.log(stack.pushObj(45));
-console.log(stack.pushObj(122));
-console.log(stack.popObj());
-console.log(stack.popObj());
-console.log(stack.popObj());
-console.log(stack.popObj());
-console.log(stack.popObj());
-console.log(stack.popObj());
-console.log(stack.pushObj());
+console.log(stack.lastIn(15));
+console.log(stack.lastIn(16));
+console.log(stack.lastIn(17));
+console.log(stack.lastIn(18));
+console.log(stack.lastIn(45));
+console.log(stack.lastIn(122));
+console.log(stack.firstOut());
+console.log(stack.firstOut());
+console.log(stack.firstOut());
+console.log(stack.firstOut());
+console.log(stack.firstOut());
+console.log(stack.firstOut());
+console.log(stack.firstOut());
 /* Demonstration of a Stack. LIFO or 
 Last In First Out
 -----------------
