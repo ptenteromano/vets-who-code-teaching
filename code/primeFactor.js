@@ -21,13 +21,13 @@ function primeFactor(n) {
 
   return results;
 }
-
+console.log(primeFactor(600851475143))
 // time to use it
-let testArr = [2, 348, 9573, 123450, 5093849, 4567891237, 123456788901237];
+/* let testArr = [2, 348, 9573, 123450, 5093849, 4567891237, 123456788901237];
 let k = 0;
 
 while (k < testArr.length) {
   console.log("Testing: ", testArr[k], primeFactor(testArr[k]));
 
   k++;
-}
+} */

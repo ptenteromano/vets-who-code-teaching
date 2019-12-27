@@ -24,10 +24,10 @@ let anotherPrime = num => {
 };
 
 let testPrimes = (func) => {
-  for (j = 0; j <= 100; j++) {
+  for (j = 0; j <= 100000; j++) {
     console.clear();
     console.log(func(j));
   }
 };
 testPrimes(isPrime);
-testPrimes(anotherPrime);
+//testPrimes(anotherPrime);

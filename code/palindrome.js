@@ -1,3 +1,13 @@
+let productOf3Digits = () =>{
+  result = []
+  for(let i = 100; i <= 999; i++){
+    for(let j = 100; j <=999; j++){
+      result.push(i*j)
+      console.log(result)
+    }
+  }
+}
+
 const words = [
   "taco cat",
   "Racecar",

@@ -6,6 +6,7 @@
 // n = (n-1) + (n-2)
 
 function Fibonacci(n) {
+  let result = [];
   // we need two base cases
   if (n <= 0) {
     return 0;
@@ -14,13 +15,17 @@ function Fibonacci(n) {
     return 1;
   }
 
-  return Fibonacci(n - 1) + Fibonacci(n - 2);
+  //result.push(Fibonacci(n - 1) + Fibonacci(n - 2));
+  result.forEach(e => {
+    if(e%2==0)return e
+  });
+  //console.log(result)
 }
 
 // run function
 let test = 38;
 
-console.log(Fibonacci(test));
+//console.log(Fibonacci(test));
 
 // Things to consider:
 // Recursion is not a very 'fast' method, but it is very succinct, and elegent.
@@ -36,4 +41,4 @@ function sumOfFirstK(k) {
   return k + sumOfFirstK(k - 1);
 }
 
-console.log(sumOfFirstK(5));
+console.log(sumOfFirstK(40000));

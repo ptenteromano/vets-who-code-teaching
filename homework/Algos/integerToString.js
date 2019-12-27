@@ -12,6 +12,8 @@ let arr = n => [...`${n}`].map(i => parseInt(i));
 let intToString = num => {
   //From arr function adding the numbers in
   let newArr = arr(num);
+  console.log(`You entered ${num} which is a ${typeof(num)}`)
+  console.log(typeof(newArr[0]))
   /* Loop through numbered array and find charcode() position. e.g., 5 => 53
  Doesn't work on negatives
 0 = ASCII (48)
@@ -30,9 +32,9 @@ Add 48 to each number to find  ASCII code
     newArr[i] = (newArr[i] % 10) + 48;
   }
   let s = String.fromCharCode(...newArr);
-  console.log(s);
+  //console.log(s);
   //Type of shows it is a string
-  console.log(typeof s);
+  console.log(`Your output is ${s} whish is a ${typeof s}.`);
 };
 
 intToString(500);
