@@ -5,6 +5,17 @@ function sumFirstNClosed(n) {
   return numerator / 2;
 }
 
+const sumFirstNIterative = (n) => {
+  let sum = 0;
+
+  for (let int = 1; int <= n; int++) {
+    sum += int;
+  }
+
+  return sum;
+};
+
+
 function sumFirstNRecursive(n) {
   // base case
   if (n === 1) {
