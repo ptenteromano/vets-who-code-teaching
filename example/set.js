@@ -7,6 +7,10 @@ class MySet {
     return this.set;
   }
 
+  isEmpty() {
+    return this.set.length === 0;
+  }
+
   removeDuplicates(arr) {
     const map = {};
     const set = [];
@@ -106,9 +110,9 @@ console.log("--------");
 const setB = new MySet([1, 2, 3, 4]);
 
 const unionSet = setA.union(setB);
-const intersectSet  = setA.intersection(setB);
+const intersectSet = setA.intersection(setB);
 
 unionSet.print();
 intersectSet.print();
 
-const gonnaError = setA.intersection([1,2]);
+const gonnaError = setA.intersection([1, 2]);
