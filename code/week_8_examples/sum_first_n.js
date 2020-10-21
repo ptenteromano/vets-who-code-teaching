@@ -23,11 +23,12 @@ function sumFirstNRecursive(n) {
   }
 
   // recursive case - look back
-  // let recurse = sumFirstNRecursive(n - 1);
+  let recurse = sumFirstNRecursive(n - 1);
 
   // add to current value
-  // recurse += n;
-  // return recurse;
+  recurse += n;
+
+  return recurse;
 
   // recursive case
   return sumFirstNRecursive(n - 1) + n;

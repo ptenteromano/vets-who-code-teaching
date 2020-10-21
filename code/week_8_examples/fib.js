@@ -7,18 +7,15 @@
 
 function Fibonacci(n) {
   // we need two base cases
-  if (n <= 0) {
-    return 0;
-  }
-  if (n === 1) {
-    return 1;
-  }
+  if (n <= 0) return 0;
+
+  if (n === 1) return 1;
 
   return Fibonacci(n - 1) + Fibonacci(n - 2);
 }
 
 // run function
-let test = 38;
+let test = 23;
 
 console.log(Fibonacci(test));
 
@@ -28,12 +25,12 @@ console.log(Fibonacci(test));
 
 // Iterative vs Recursion
 
-function sumOfFirstK(k) {
-  if (k <= 1) {
-    return 1;
-  }
+// function sumOfFirstK(k) {
+//   if (k <= 1) {
+//     return 1;
+//   }
 
-  return k + sumOfFirstK(k - 1);
-}
+//   return k + sumOfFirstK(k - 1);
+// }
 
-console.log(sumOfFirstK(5));
+// console.log(sumOfFirstK(5));
