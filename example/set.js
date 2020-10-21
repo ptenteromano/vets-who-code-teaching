@@ -53,14 +53,13 @@ class MySet {
       return new MySet(newArr);
     }
 
-    return new Error("Must supply another class of type: MySet");
+    throw new Error("Must supply another class of type: MySet");
   }
 
   // DOES NOT MANIPULATE CLASS'S SET
   intersection(otherSet) {
     if (otherSet && otherSet.className === "SET") {
       const newArr = [];
-      console.log("intesecting");
 
       const setToIntesect = otherSet.getSet();
 
@@ -69,12 +68,11 @@ class MySet {
 
         if (this.map[value]) newArr.push(value);
       }
-      console.log("newArr", newArr);
 
       return new MySet(newArr);
     }
 
-    return new Error("Must supply another class of type: MySet");
+    throw new Error("Must supply another class of type: MySet");
   }
 
   clearSet() {
@@ -89,7 +87,9 @@ class MySet {
   className = "SET";
 }
 
-const arr = [5, 3, 5, 2, 2, 2, 2, 6, 8];
+// Use the set
+
+const arr = [5, 3, 5, 2, 2, 2, 8];
 
 const setA = new MySet(arr);
 
@@ -101,10 +101,14 @@ setA.addToSet(22);
 setA.addToSet(22);
 
 console.log("--------");
+console.log("--------");
+
 const setB = new MySet([1, 2, 3, 4]);
 
 const unionSet = setA.union(setB);
-const intersectSet = setA.intersection(setB);
+const intersectSet  = setA.intersection(setB);
 
 unionSet.print();
 intersectSet.print();
+
+const gonnaError = setA.intersection([1,2]);
