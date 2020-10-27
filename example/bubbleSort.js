@@ -8,11 +8,12 @@ const bubbleSort = (arr) => {
   const sortedArr = [...arr];
   const len = arr.length;
   let temp;
+  let totalSwaps = 0;
 
   for (let idx = 0; idx < len; idx++) {
     let singleSwapTraversals = 0;
 
-    // "Bubble" 
+    // "Bubble"
     for (let bubble = 0; bubble < len - 1; bubble++) {
       if (sortedArr[bubble] > sortedArr[bubble + 1]) {
         // Perform an in-place swap
@@ -21,12 +22,15 @@ const bubbleSort = (arr) => {
         sortedArr[bubble + 1] = temp;
 
         singleSwapTraversals++;
+        totalSwaps++;
       }
     }
 
     // done early if no swaps were made on any single traversal
     if (singleSwapTraversals === 0) break;
   }
+
+  console.log("total swaps:", totalSwaps);
 
   return sortedArr;
 };
@@ -36,3 +40,5 @@ const sorted = bubbleSort(original);
 
 console.log("original", original);
 console.log("sorted", sorted);
+
+bubbleSort(sorted);
