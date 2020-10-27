@@ -1,8 +1,19 @@
+// Data structure
+// An object with certain properties, that interact with data, and are only accessible through interfacing with the data structure
+
+// Stack, Queue, Object*****
+
+// Our ownSet
+// What else does a Set DAta Structure do??
+// Add an elemetn
+// Remove an element
+
 class MySet {
   constructor(arr) {
     this.set = this.removeDuplicates(arr);
   }
 
+  // Getter
   getSet() {
     return this.set;
   }
@@ -11,8 +22,10 @@ class MySet {
     return this.set.length === 0;
   }
 
+  // Creating the set
   removeDuplicates(arr) {
-    const map = {};
+    const map = {}; // Plain old js object
+
     const set = [];
 
     for (const idx in arr) {
@@ -25,10 +38,11 @@ class MySet {
       }
     }
 
-    this.map = map;
+    this.map = map; // O(1)
     return set;
   }
 
+  // Add value if not already in set
   addToSet(value) {
     if (this.map[value]) return;
 
@@ -49,9 +63,12 @@ class MySet {
     this.print();
   }
 
-  // DOES NOT MANIPULATE CLASS'S SET
+  // We want "otherSet" to be an instance of MySet
+
+  // Union -- combine sets, remove duplicates again
+  // DOES NOT MANIPULATE THIS INSTANCE'S SET
   union(otherSet) {
-    if (otherSet && otherSet.className === "SET") {
+    if (otherSet && otherSet.className === "MY_SET") {
       const newArr = this.set.concat(otherSet.getSet());
 
       return new MySet(newArr);
@@ -60,15 +77,16 @@ class MySet {
     throw new Error("Must supply another class of type: MySet");
   }
 
-  // DOES NOT MANIPULATE CLASS'S SET
+  // Intersection -- combine sets, prune all non-duplicates
+  // DOES NOT MANIPULATE THIS INSTANCE'S SET
   intersection(otherSet) {
-    if (otherSet && otherSet.className === "SET") {
+    if (otherSet && otherSet.className === "MY_SET") {
       const newArr = [];
 
-      const setToIntesect = otherSet.getSet();
+      const setToIntersect = otherSet.getSet();
 
-      for (const idx in setToIntesect) {
-        const value = setToIntesect[idx];
+      for (const idx in setToIntersect) {
+        const value = setToIntersect[idx];
 
         if (this.map[value]) newArr.push(value);
       }
@@ -80,39 +98,36 @@ class MySet {
   }
 
   clearSet() {
+    this.map = {}; // O(1) mapping
     this.set = [];
-    this.map = [];
   }
 
   print() {
     console.log(`{ ${this.getSet()} }`);
   }
 
-  className = "SET";
+  className = "MY_SET";
 }
 
-// Use the set
+// --------------------
 
-const arr = [5, 3, 5, 2, 2, 2, 8];
+const someArr = [1, 1, 2, 3, 3, 2, 8];
 
-const setA = new MySet(arr);
+const setA = new MySet(someArr);
 
 setA.print();
+setA.addToSet(100);
+setA.removeFromSet(8);
 
-setA.removeFromSet(5);
+const setB = new MySet([1, 4, 5, 100]);
 
-setA.addToSet(22);
-setA.addToSet(22);
-
-console.log("--------");
-console.log("--------");
-
-const setB = new MySet([1, 2, 3, 4]);
+console.log("----------------");
+setB.print();
 
 const unionSet = setA.union(setB);
-const intersectSet = setA.intersection(setB);
+const intersectionSet = setB.intersection(setA);
 
-unionSet.print();
-intersectSet.print();
+intersectionSet.print();
 
-const gonnaError = setA.intersection([1, 2]);
+setA.clearSet();
+setA.print();

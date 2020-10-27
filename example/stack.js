@@ -1,3 +1,9 @@
+// Add to stack
+// Pops
+// Clear whole stack
+// Print the top most
+// Print all
+
 class MyStack {
   constructor(arr = []) {
     this.stack = arr;
