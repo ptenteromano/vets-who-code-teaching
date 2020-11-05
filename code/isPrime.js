@@ -1,5 +1,4 @@
-// Day 3
-// Part 2
+// Primarality example
 
 // a function to check whether a number is prime or not
 
@@ -15,6 +14,7 @@ function isPrime(k) {
   for (let i = 2; i < k; i++) {
     if (k % i == 0) return "Not Prime";
   }
+
   return "Prime!";
 }
 
@@ -22,8 +22,13 @@ let str = isPrime(testVal);
 console.log(str);
 
 // Optimized slightly!
-// Note: There are many different primality tests, see bottom link on README
 // Think about why this works
+// k = 30 as example
+
+// 2 * 15 || 3 * 10 || 5 * 6      ....     15 * 2 || 10 * 3 || 6 * 5
+
+// 16 - perfect square (4)
+
 function isPrimeSqrt(k) {
   if (k < 2) {
     return "Not Prime";
@@ -32,7 +37,7 @@ function isPrimeSqrt(k) {
   let sqrt = parseInt(Math.sqrt(k));
 
   for (let i = 2; i <= sqrt; i++) {
-    if (k % i == 0) {
+    if (k % i === 0) {
       return "Not Prime";
     }
   }
@@ -43,6 +48,7 @@ let str2 = isPrimeSqrt(testVal);
 console.log(str2);
 
 // First 'n' primes:
+// Benchmark to compare the brute force vs the sqrt
 // A simple loop using our optimized version!
 function first_N_Primes(n, opt) {
   let num = 2;
@@ -58,7 +64,7 @@ function first_N_Primes(n, opt) {
     }
 
     if (str == "Prime!") {
-      console.log(num);
+      // console.log(num);
       i++;
     }
     num++;
@@ -69,8 +75,9 @@ let n = 10;
 
 // test speeds!!
 console.log(`\nTesting with first ${n} primes\n`);
+
 console.time("N primes - original");
-first_N_Primes(n);
+// first_N_Primes(n);
 console.timeEnd("N primes - original");
 
 console.time("N primes - OPTIMIZED!!");
@@ -83,7 +90,7 @@ n = 1000;
 console.log(`\nTesting with first ${n} primes\n`);
 console.time("N primes - original");
 
-first_N_Primes(n);
+// first_N_Primes(n);
 
 console.timeEnd("N primes - original");
 
@@ -96,7 +103,7 @@ n = 10000;
 // test speeds!!
 console.log(`\nTesting with first ${n} primes\n`);
 console.time("N primes - original");
-first_N_Primes(n);
+// first_N_Primes(n);
 console.timeEnd("N primes - original");
 
 console.time("N primes - OPTIMIZED!!");
@@ -108,7 +115,7 @@ n = 30000;
 // test speeds!!
 console.log(`\nTesting with first ${n} primes\n`);
 console.time("N primes - original");
-first_N_Primes(n);
+// first_N_Primes(n);
 console.timeEnd("N primes - original");
 
 console.time("N primes - OPTIMIZED!!");

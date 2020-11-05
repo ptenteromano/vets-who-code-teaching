@@ -1,33 +1,43 @@
+/**
+ * Returns an array of prime factors of a given number
+ * We can manipulate the argument, n, because it is passed by value
+ *
+ * @param {Number} n - Integer to get the prime factors from
+ *
+ * @return {Array} - Array of prime factors
+ */
 function primeFactor(n) {
-  // a method of storing and returning multiple values
-  let results = [];
+  const primes = [];
 
-  // print 2 as long as it is a factor
-  while (n % 2 == 0) {
-    results.push(2);
+  // 2 is the easiest prime to add to the list
+  while (n % 2 === 0) {
+    primes.push(2);
     n /= 2;
   }
 
-  // continuously break 'n', printing the factors which do so
-  for (let i = 3; i <= Math.sqrt(n); i += 2) {
-    while (n % i == 0) {
-      results.push(i);
-      n /= i;
+  // Continuously break 'n', printing the factors which do so
+  // We can start at 3 now (since we did 2 above)
+  // We can also increment by 2, since all primes > 2 are odd
+  // Use the square root for real optimization!
+  for (let factor = 3; factor <= Math.sqrt(n); factor += 2) {
+    while (n % factor === 0) {
+      primes.push(factor);
+      n /= factor;
     }
   }
 
-  // n itself will be the last prime
-  if (n > 2) results.push(n);
+  // We could be left with n itself as the last prime
+  if (n > 2) primes.push(n);
 
-  return results;
+  return primes;
 }
 
 // time to use it
-let testArr = [2, 348, 9573, 123450, 5093849, 4567891237, 123456788901237];
+let testArr = [2, 13, 19, 348, 9573, 123450, 5093849, 4567891237, 123456788901237];
 let k = 0;
 
 while (k < testArr.length) {
-  console.log("Testing: ", testArr[k], primeFactor(testArr[k]));
+  console.log("Testing:", testArr[k], "-->", primeFactor(testArr[k]));
 
   k++;
 }
