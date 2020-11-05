@@ -1,44 +1,89 @@
-// Teach:
-// - Pass by reference vs pass by value
-// - "Swap"
-//
+// Pass by reference
+// vs.
+// Pass by value
 
 // O(n^2)
+// Do not manipulate the current array!
+// Return a new, sorted array
 const bubbleSort = (arr) => {
-  const sortedArr = [...arr];
+  // Make a copy of array, NEW memory address
+  const sortedArr = [...arr]; // pass by value
+
   const len = arr.length;
-  let temp;
   let totalSwaps = 0;
 
+  let leftValue, rightValue;
+
   for (let idx = 0; idx < len; idx++) {
-    let singleSwapTraversals = 0;
+    let singleTraversalSwap = 0;
 
     // "Bubble"
     for (let bubble = 0; bubble < len - 1; bubble++) {
-      if (sortedArr[bubble] > sortedArr[bubble + 1]) {
-        // Perform an in-place swap
-        temp = sortedArr[bubble];
-        sortedArr[bubble] = sortedArr[bubble + 1];
-        sortedArr[bubble + 1] = temp;
+      leftValue = sortedArr[bubble];
+      rightValue = sortedArr[bubble + 1];
 
-        singleSwapTraversals++;
-        totalSwaps++;
+      if (leftValue > rightValue) {
+        // Swap the values
+        sortedArr[bubble] = rightValue;
+        sortedArr[bubble + 1] = leftValue;
+
+        singleTraversalSwap++;
       }
     }
 
-    // done early if no swaps were made on any single traversal
-    if (singleSwapTraversals === 0) break;
+    totalSwaps += singleTraversalSwap;
+
+    console.log("Traversing..", singleTraversalSwap);
+
+    if (singleTraversalSwap === 0) break;
   }
 
-  console.log("total swaps:", totalSwaps);
-
+  console.log("Total # of bubbles", totalSwaps);
   return sortedArr;
 };
 
-const original = [5, 8, 10, 2];
-const sorted = bubbleSort(original);
+const orig = [99, 2, 1, 8, 3, 10];
 
-console.log("original", original);
+const sorted = bubbleSort(orig);
+
+console.log("original", orig);
 console.log("sorted", sorted);
 
-bubbleSort(sorted);
+
+
+// ----------------------------------------------------------------
+
+/**
+ *
+ * Matching Brackets
+ *
+ * function - take Any string
+ *
+ * Iterate over the string
+ *
+ * Return whether the string is a valid string with correct matching brackets
+ * string w/ no brackets is fine
+ *
+ * Use a stack!
+ * const stack = [];
+ *
+ * stack.push('{')
+ *
+ * stack.pop();
+ *
+ * // for loop up here w/ idx iterator
+ * let char = str.charAt(idx);
+ * str[idx]
+ *
+ *
+ *
+ *
+ */
+
+
+ []
+ {}
+ ()
+
+ ["hi"[{
+ }]][ } ]
