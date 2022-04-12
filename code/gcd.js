@@ -1,6 +1,8 @@
 // Phil Tenteromano
 
 // GCD algorithm in javascript
+// Greatest common divisor
+
 
 // gcd === 8
 const num1 = 80;
@@ -12,7 +14,7 @@ function gcd(a, b) {
 
   // 'a' should be the larger number
   if (a < b) {
-    let temp = a;
+    let temp = a;war
     a = b;
     b = temp;
   }
@@ -34,3 +36,4 @@ console.log(gcd(num1, num2));
 module.exports = {
   gcd
 };
+dasdas

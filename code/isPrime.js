@@ -2,6 +2,9 @@
 
 // a function to check whether a number is prime or not
 
+// prime.. composite
+
+
 let testVal = 2017;
 
 // First option, pretty intuitive
@@ -72,12 +75,13 @@ function first_N_Primes(n, opt) {
 }
 
 let n = 10;
+const showOriginal = false;
 
 // test speeds!!
 console.log(`\nTesting with first ${n} primes\n`);
 
 console.time("N primes - original");
-// first_N_Primes(n);
+if (showOriginal) first_N_Primes(n);
 console.timeEnd("N primes - original");
 
 console.time("N primes - OPTIMIZED!!");
@@ -90,7 +94,7 @@ n = 1000;
 console.log(`\nTesting with first ${n} primes\n`);
 console.time("N primes - original");
 
-// first_N_Primes(n);
+if (showOriginal) first_N_Primes(n);
 
 console.timeEnd("N primes - original");
 
@@ -103,7 +107,7 @@ n = 10000;
 // test speeds!!
 console.log(`\nTesting with first ${n} primes\n`);
 console.time("N primes - original");
-// first_N_Primes(n);
+if (showOriginal) first_N_Primes(n);
 console.timeEnd("N primes - original");
 
 console.time("N primes - OPTIMIZED!!");
@@ -115,7 +119,7 @@ n = 30000;
 // test speeds!!
 console.log(`\nTesting with first ${n} primes\n`);
 console.time("N primes - original");
-// first_N_Primes(n);
+if (showOriginal) first_N_Primes(n);
 console.timeEnd("N primes - original");
 
 console.time("N primes - OPTIMIZED!!");
